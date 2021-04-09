@@ -5,4 +5,4 @@ router.get('/', async (req, res) => {
     res.send('Hello There');
 })
 
-module.exports = router
+module.exports = router 
