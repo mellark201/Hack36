@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const User = require('../models/user');
+const Proposals = require('../models/proposals');
+const log = require('../middleware');
 
 router.get('/landing', async (req, res) => {
     res.render("landing");
