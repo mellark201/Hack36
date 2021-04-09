@@ -2,11 +2,26 @@ const express = require('express');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const expressSession = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const passport = require('passport');
 const GithubStrategy = require('passport-github');
 var server = require('http').createServer(app);
-const User = require('./models/user');
 var io = require('socket.io')(server);
+
+const User = require('./models/user');
+
+app.use(flash());
+
+
+//Important for Passport.js
+app.use(require('express-session')({
+    secret:'codecode',
+    resave:false,
+    saveUninitialized: false
+}))
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -36,6 +51,13 @@ passport.use(new GithubStrategy({
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
+    next();
+})
+
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -61,7 +83,7 @@ const proposalRouter = require('./routes/proposal');
 const profileRouter = require('./routes/profile');
 const registerRouter = require('./routes/register');
 const signupRouter = require('./routes/signup');
-cost checkRouter = require('./routes/check');
+const checkRouter = require('./routes/check');
 
 app.use((req, res, next) => {
     req.io = io;

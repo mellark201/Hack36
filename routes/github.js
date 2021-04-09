@@ -9,6 +9,7 @@ router.get('/callback', passport.authenticate('github', {failureRedirect: '/logi
         req.user.token = req.query.code;
         await req.user.save();
         console.log(req.user);
+        console.log('Got back successfully');
         res.redirect('/');
     }
 );

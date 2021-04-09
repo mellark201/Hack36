@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const User = require('../models/user');
-const Proposals = require('../modles/proposals');
+const Proposals = require('../models/proposals');
 const log = require('../middleware');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 

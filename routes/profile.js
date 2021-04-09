@@ -4,7 +4,7 @@ const User = require('../models/user');
 const Proposal = require('../models/proposals');
 const log = require('../middleware');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
-const socket = require('./socker');
+const socket = require('./socket');
 
 router.get('./:id', log.isLoggedIn, async (req, res) => {
     try {

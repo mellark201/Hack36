@@ -11,6 +11,7 @@ router.get('/landing', async (req, res) => {
 
 //Base Page Router
 router.get('/', async(req, res) => {
+    console.log(req.user);
     let info;
     let proposals;
     try {
