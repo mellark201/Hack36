@@ -1,0 +1,19 @@
+{
+  "name": "codecollab",
+  "version": "1.0.0",
+  "description": "Hack 36 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mellark201/Hack36.git"
+  },
+  "author": "Godless",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mellark201/Hack36/issues"
+  },
+  "homepage": "https://github.com/mellark201/Hack36#readme"
+}
