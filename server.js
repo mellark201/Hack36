@@ -6,6 +6,7 @@ const passport = require('passport');
 const GithubStrategy = require('passport-github');
 var server = require('http').createServer(app);
 const User = require('./models/user');
+var io = require('socket.io')(server);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,8 +57,25 @@ db.once('open', () => {
 
 const indexRouter = require('./routes/index');
 const githubRouter = require('./routes/github');
+const proposalRouter = require('./routes/proposal');
+const profileRouter = require('./routes/profile');
+const registerRouter = require('./routes/register');
+const signupRouter = require('./routes/signup');
+cost checkRouter = require('./routes/check');
+
+app.use((req, res, next) => {
+    req.io = io;
+    next();
+})
 
 app.use('/', indexRouter);
 app.use('/github', githubRouter);
+app.use('/proposal', proposalRouter);
+app.use('/profile', profileRouter);
+app.use('/signup', signupRouter);
+app.use('/check', checkRouter);
+app.use('/register', registerRouter);
+app.set('socketio', io);
+require('./socket')(io);
 
 server.listen(process.env.PORT || 3000);
