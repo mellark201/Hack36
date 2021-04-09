@@ -1,1 +1,25 @@
-<a class="btn btn-secondary" href = "/github" target="_blank"><i class="fab mr-2 fa-github"></i>Login with Github</a>
+<div>
+    <div class="banner index-banner">
+        <h2 class="banner-header">CODE FOR <span class="good">GOOD</span></h2>
+        <div class="banner-inner">
+            Code Bono connects nonprofits with developers looking to contribute their skills.
+        </div>
+        <div class="index-banner-group">
+            <% if(user === undefined) { %>
+                <a class="btn btn-secondary" href = "/github" target="_blank"><i class="fab mr-2 fa-github"></i>Login with Github</a>
+                or 
+                <a class="index-banner-link" href="/proposal/all">Browse Proposals</a>
+            <% } %>
+            <% if(user !== undefined) { %>
+                <a class="btn btn-primary" href="/profile/<%= user.id %>"><i class="fas mr-2 fa-id-card-alt"></i>Profile</a>
+                <a class="btn btn-primary" href="/logout"><i class="fas mr-2 fa-sign-out-alt"></i>Logout</a>
+            <% } %>
+        </div>
+    </div>
+        <% if(user !== undefined) { %>
+            <div class="d-flex justify-content-center mt-5">
+                <a class="btn btn-danger" href="/proposal/new"><i class="fas fa-plus mr-2"></i>Add Proposals</a>
+            </div>
+        <% } %>
+    <%- include('./partials/render_proposal.ejs') %>
+</div>

@@ -1,0 +1,10 @@
+<% if(errorMessage !== undefined && errorMessage!='') { %>
+    <div class='alert alert-danger d-flex justify-content-center' id="errorMSG">
+        <div>
+            <%= errorMessage %>
+        </div>
+        <button type="button" class="close mr-5" id='clear-button' aria-label="Close">
+            <span aria-hidden="true"></span>&times;</span>
+        </button>
+    </div>
+<% } %>
