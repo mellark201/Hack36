@@ -6,7 +6,7 @@ const log = require('../middleware');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 const socket = require('./socket');
 
-router.get('./:id', log.isLoggedIn, async (req, res) => {
+router.get('/:id', log.isLoggedIn, async (req, res) => {
     try {
         let arr = [];
         for(const id of req.user.proposalId) {
