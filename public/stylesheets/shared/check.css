@@ -1,0 +1,17 @@
+.good {
+    color: white;
+}
+
+.banner-inner {
+    color: white;
+    margin: 1.5rem 0rem;
+}
+
+.index-banner-link {
+    text-decoration: none;
+    color: rgb(14,74,94);
+}
+
+.index-banner-group {
+    padding-bottom: 2rem;
+}

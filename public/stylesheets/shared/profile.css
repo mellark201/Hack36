@@ -1,0 +1,11 @@
+.profile-detail {
+    display: flex;
+}
+
+.profile-detail-grid {
+    display: grid;
+    align-content: flex-start;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: auto auto;
+}

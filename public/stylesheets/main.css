@@ -1,0 +1,54 @@
+@import 'shared/proposal.css';
+@import 'shared/check.css';
+@import 'shared/index.css';
+@import 'shared/profile.css';
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.inner-container {
+    margin: 0 2rem;
+}
+
+.banner {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    color: #172B31;
+    background-color: #2C8FA0;
+}
+
+.banner-header {
+    font-weight: 500;
+}
+
+.card-image {
+    padding:  1rem;
+}
+
+video {
+    width:20%;
+    border-radius: 15px;
+}
+
+.page-header {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.scrollable {
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 600px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+.logo-link {
+    text-decoration: none;
+}

@@ -24,7 +24,7 @@ router.get('/', async(req, res) => {
         message = '';
     else
         message = req.query.er;
-    res.render('index', {user: req.user, propsals: proposals, errorMessage: message, isLog: req.user!==undefined});
+    res.render('index', {user: req.user, proposals: proposals, errorMessage: message, isLog: req.user!==undefined});
 })
 
 router.get('/logout', log.isLoggedIn, (req, res) => {
