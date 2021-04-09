@@ -1,0 +1,61 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <h3><%= user.name %></h3>
+            </div>
+            <div class="mb-3 text-muted">
+                <%= user.email !== user.username ? user.email : user.profileUrl %>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <a class="btn btn-primary" href="/profile/<%=user.id%>/edit"><i class="fas mr-2 fa-user-edit"></i>Edit Details</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img height = 350 width=350 src="<%=user.githubAvatar%>" class="mb-3">
+        </div>
+        <div class="pt-5 mt-5 col-sm-5">
+            <div class="p-2 d-flex">
+                <h4>Visit<a class="logo-link" href="<%=user.profileUrl%>" target="_blank"> GitHub</a></h4>
+            </div>
+            <% if(user.linkedIn !== user.username) { %>
+                <div class="p-2">
+                    <h4>Visit<a class="logo-link" href="<%=user.linkedIn%>" target="_blank"> LinkedIn</a></h4>
+                </div>
+            <% } %>
+            <% if(user.twitter !== user.username) { %>
+                <div class="p-2">
+                    <h4>Visit<a class="logo-link" href="<%=user.twitter%>" target="_blank"> Twitter</a></h4>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <div">
+        <%- include('_proposal.ejs') %>
+        <%- include('_projects.ejs') %>
+    </div>
+</div>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('connect', () => {
+        console.log('connected');
+    })
+    if(window.location.href.includes('join=') || window.location.href.includes('leave='))
+    {
+        // console.log(window.location.href);
+        var user = window.location.href.split('/')[4].split('?')[0];
+        var code = window.location.href.split('/')[4].split('?')[1].split('=')[0];
+        var proposal = window.location.href.split('=')[1];
+        let info = {};
+        info.sender=user;
+        info.receiver=proposal;
+        info.typer= code === 'join' ? 'newUser' : 'deleteUser' ;
+        info.message='';
+        console.log(info);
+        socket.emit('newMessage', info);
+    }
+</script>

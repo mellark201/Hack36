@@ -1,0 +1,21 @@
+<% if(proposals.length > 0) { %>
+    <h3 class="mt-2"><i class="fas fa-lightbulb"></i><span class="ml-3">Your Proposals: </span></h3>
+    <% proposals.forEach(proposal => { %>
+        <div class="card mt-4">
+            <div class="card-body profile-detail row">
+                <div class="col-sm-9">
+                    <div class="card-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <%= proposal.title %>
+                    </div>
+                    <div class="card-text">
+                        <%= proposal.description %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/check/<%=proposal.id%>/<%=user.id%>" class="btn btn-secondary"><i class="fas fa-code"></i> Check in on this project</a>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+<% } %>
