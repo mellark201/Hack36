@@ -39,6 +39,7 @@ router.post('/', async(req, res) => {
         contact: user.email,
         deadline: new Date(req.body.deadline),
         createId: req.user.id,
+        techStack: req.body.techstack,
         githubRepoName: req.body.repo,
         githubUserName: req.user.username
     })
@@ -98,6 +99,7 @@ router.put('/:id', async(req, res) => {
         temp = await Proposals.findById(req.params.id);
         temp.title = req.body.title;
         temp.description = req.body.description;
+        temp,techStack = req.body.techstack;
         temp.deadline = new Date(req.body.deadline);
         if(req.body.cover != null && req.body.cover!='')
             saveCover(temp, req.body.cover);

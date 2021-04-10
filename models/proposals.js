@@ -40,6 +40,10 @@ var ProposalSchema = new mongoose.Schema({
         sender: String,
         typer: String
     }],
+    techStack: {
+        type:String,
+        required: true
+    },
     video: [{
         sender: String,
         date: String,
