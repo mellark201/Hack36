@@ -17,7 +17,7 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     text-align: center;
-    color: #172B31;
+    color: #0a0909;
     background-color: #2C8FA0;
 }
 
@@ -52,3 +52,10 @@ video {
 .logo-link {
     text-decoration: none;
 }
+ 
+.f1{
+    background-image: url();
+}
+     
+
+ 

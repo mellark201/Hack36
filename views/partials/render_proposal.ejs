@@ -1,3 +1,4 @@
+
 <div class="container index-center">
     <h2 class="page-header"> View Proposals </h2>
     <div class="proposal-grid">
@@ -17,7 +18,7 @@
                     <div class="text-muted">
                         <%= proposal.deadline.toLocaleDateString() %>
                     </div>
-                    <a class="btn btn-secondary" href="/proposal/<%= proposal.id %>"><i class="fas mr-2 fa-angle-double-right"></i>More Info</a>
+                    <a class="btn btn-success" href="/proposal/<%= proposal.id %>"><i class="fas mr-2 fa-angle-double-right"></i>More Info</a>
                 </div>
             </div>
         <% }) %>

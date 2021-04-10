@@ -1,3 +1,4 @@
+<%- include('../partials/header.ejs') %> 
 <div class="container mt-4">
     <div>
         <h3><%= proposal.title.toUpperCase() %></h3>
@@ -12,7 +13,7 @@
         <div class="ml-5">
             <div class="mb-3">
                 <h3>Proposal Description</h3>
-                <%= proposal.description %>
+                <%= proposal.description %> 
             </div>
             <div class="mb-3">
                 <h4><i class="fas fa-calendar-day"></i> Deadline : <%= proposal.deadline.toLocaleDateString() %></h4>
@@ -61,7 +62,7 @@
                 </div>
             <% } else { %>
                 <div>
-                    <a href="/check/<%=proposal.id%>/<%=user.id%>" class="btn btn-secondary"><i class="fas fa-code"></i> Check in on this project</a>
+                    <a href="/check/<%=proposal.id%>/<%=user.id%>" class="btn btn-success"><i class="fas fa-code"></i> Check in on this project</a>
                 </div>
             <% } %>
         </div>

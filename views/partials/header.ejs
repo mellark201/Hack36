@@ -1,22 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <h2><a class="navbar-brand" href="/">Code For Good</a></h2>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/proposal/all">Browse Proposal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About Us</a>
-        </li>
-        <% if(isLog) { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        <% } %>
-      </ul>
-    </div>
-  </nav>
+<div class="f1">
+  <div class="banner index-banner">
+      <h2 class="banner-header">CODE FOR <span class="good">GOOD</span></h2>
+      <div class="banner-inner">
+          Code Bono connects nonprofits with developers looking to contribute their skills.
+      </div>
+      <div class="index-banner-group">
+          <% if(currentUser === undefined) { %>
+              <a class="btn btn-info" href = "/github" target="_blank"><i class="fab mr-2 fa-github"></i>Login with Github</a>
+              or 
+              <a class="index-banner-link" href="/proposal/all">Browse Proposals</a>
+          <% } %>
+          <% if(currentUser !== undefined) { %>
+              <a class="btn btn-primary" href="/profile/<%= user.id %>"><i class="fas mr-2 fa-id-card-alt"></i>Profile</a>
+              <a class="btn btn-primary" href="/logout"><i class="fas mr-2 fa-sign-out-alt"></i>Logout</a>
+          <% } %>
+      </div>
+  </div>
+      <% if(currentUser !== undefined) { %>
+          <div class="d-flex justify-content-center mt-5">
+              <a class="btn btn-danger" href="/proposal/new"><i class="fas fa-plus mr-2"></i>Add Proposals</a>
+          </div>
+      <% } %>

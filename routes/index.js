@@ -33,7 +33,7 @@ router.get('/logout', log.isLoggedIn, (req, res) => {
     res.redirect('/');
 })
 
-router.get('/about', (req, res) => {
+router.get('/dashboard/about', (req, res) => {
     res.render('/profile/admin', {errorMessage: '', isLog: req.user !== undefined});
 })
 

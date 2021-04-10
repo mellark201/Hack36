@@ -1,9 +1,11 @@
+<%- include('../partials/header.ejs') %> 
 <div class="container">
-    <h4>Edit</h4>
-    <div>
+    <h1 style="text-align: center">Edit</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <div>
         <label for='title'>Name: </label> 
         <input type="text" name="name" id="name" required value="<%=user.name === user.username ? '' : user.name%>" class="form-control">
-    </div>
+        </div>
     <div>
         <label for='email'>Email: </label> 
         <input type="email" name="email" id="name" required value="<%=user.email === user.username ? '' : user.email%>" class="form-control">
@@ -22,4 +24,5 @@
         <input type="url" name="extra" id="extra" value="<%=user.extra === user.username ? '' : user.extra%>" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </div>
