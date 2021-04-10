@@ -47,11 +47,20 @@ module.exports = io => {
         })
 
         socket.on('newActiveUser', async(info) => {
+            console.log('Socket Data');
+            console.log(info);
+            console.log('New Active User');
             const id = info.userId;
             const user = await User.findById(id);
+            console.log(user.username);
             user.isActive = true;
             await user.save();
-            io.emit('updateActiveUser', info);
+            const data = {
+                id: info.userId
+            }
+            console.log('Done');
+            console.log(data);
+            io.emit('addActiveUser', data);
         })
 
         socket.on('updateFeed', async (data) => {

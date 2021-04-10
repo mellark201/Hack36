@@ -33,5 +33,6 @@
     let activeData = '<%-active%>'
     let info = {};
     info.userId = activeData;
+    console.log(info);
     socket.emit('newActiveUser', info);
 </script>

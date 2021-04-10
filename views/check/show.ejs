@@ -63,8 +63,8 @@
     </div>
 </div>
 
-<div class="active-users">
-
+<div id="active-users">
+    <h3> Active Users </h3>
 </div>
 
 
@@ -299,6 +299,19 @@
             x.style.display = 'none';
     }
 
-    let activeData = '<%-proposal.developerId%>'
-    console.log(activeData);
+    const developers = '<%-proposal.developerId%>'
+    const developerArray = developers.split(',');
+    console.log('temptemp');
+    socket.on('addActiveUser', (data) => {
+        console.log(data);
+        const temp = developerArray.length;
+        for(var i=0; i<temp; i++) {
+            if(developerArray[i]===data.id) {
+                var p = document.createElement('p');
+                p.setAttribute('id', data.id);
+                p.innerHTML = `${data.id} active now`;
+                getElem('active-users').appendChild(p);
+            }
+        }
+    })
 </script>
