@@ -2,18 +2,18 @@
     <h3><i class="fas fa-project-diagram"></i><span class="ml-3">Your Project: </span></h3>
     <% project.forEach(proposal => { %>
         <div class="card mt-4">
-            <div class="card-body profile-detail row">
+            <div class="card-body profile-detail row" ">
                 <div class="col-sm-9">
-                    <div class="card-title">
+                    <div class="card-title" style="color: black;">
                         <i class="fas fa-map-marker-alt"></i>
-                        <%= proposal.title %>
+                       <h2><%= proposal.title %></h2> 
                     </div>
-                    <div class="card-text">
-                        <%= proposal.description %>
+                    <div class="card-text" style="color: black;">
+                      <h4><%= proposal.description %></h4> 
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <a href="/check/<%=proposal.id%>/<%=user.id%>" class="btn btn-success"><i class="fas fa-code"></i> Check in on this project</a>
+                    <a href="/check/<%=proposal.id%>/<%=user.id%>" class="btn btn-success"><i class="fas fa-code"></i> Check in on this project2</a>
                 </div>
             </div>
         </div>

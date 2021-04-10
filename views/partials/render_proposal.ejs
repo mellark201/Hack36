@@ -6,16 +6,16 @@
             <div class="card border-secondary mt-4" style="width: 18rem;">
                 <img height=250 width=100 class="card-img-top card-image" src="<%= proposal.coverImagePath %>" alt="Card image Cap">
                 <div class="card-body">
-                    <h5 class="card-title mb-4">
+                    <h5 class="card-title mb-4" style="color: black;">
                         <%= proposal.title %>
                     </h5>
-                    <div class="card-subtitle mb-2">
+                    <div class="card-subtitle mb-2" style="color: black;">
                         <%= proposal.organization.toUpperCase() %>
                     </div>
-                    <div class="card-text mb-2">
+                    <div class="card-text mb-2" style="color: black;">
                         <%= proposal.description.substring(0, 100) %>
                     </div>
-                    <div class="text-muted">
+                    <div class="text-muted" style="color: black;">
                         <%= proposal.deadline.toLocaleDateString() %>
                     </div>
                     <a class="btn btn-success" href="/proposal/<%= proposal.id %>"><i class="fas mr-2 fa-angle-double-right"></i>More Info</a>
