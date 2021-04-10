@@ -1,79 +1,86 @@
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
 <div class="banner index-banner">
-    <a href="/landing"> <h2 class="banner-header">CODE FOR <span class="good">GOOD</span></h2></a>
-    <h3> <%= proposal.title %></h3>
-    <div class="banner-inner">
-        This page is home base for you and other developers working on this project. You can message each other, video chat, manage your project board and see live updates from your Github Repo.
+    <h2 class="banner-header">CODE<span class="good">NATE</span></h2>
+    <h3 class="show-project-title"> <%= proposal.title %></h3>
+    <div class="banner-inner show-details-banner">
+        This page is home base for you and other developers working on this project. You can message each other, video chat, see who's up and running and see live updates from your Github Repo.
     </div>
-    <h4>Go Ahead, Code For Good!</h4>
-    <h3><a href="https://github.com/<%=proposal.githubUserName%>/<%=proposal.githubRepoName%>"><i class="fab mr-2 fa-github-alt"></i></a></h3>
+    <h4>Go Ahead, Codenate!</h4>
+    <h5><a class="show-github-anchor mb-5" href="https://github.com/<%=proposal.githubUserName%>/<%=proposal.githubRepoName%>">Visit Github Repo</a></h5>
     <% if(currentUser !== undefined) { %>
         <a class="btn btn-primary" href="/profile/<%= currentUser.id %>"><i class="fas mr-2 fa-id-card-alt"></i>Profile</a>
         <a class="btn btn-primary" href="/logout"><i class="fas mr-2 fa-sign-out-alt"></i>Logout</a>
     <% } %>
 </div>
-<hr><hr><hr>
-
-<div class="container">
+<div class="container show-container">
     <div class="row">
-        <div class="col-sm-6" style="color: blanchedalmond;">
+        <div class="col-sm-6 show-bgcolor" >
             <div id="gitfeed">
-                <button class="btn btn-warning" id='gitbutton'>Refresh Feed</button>
-                <div  class="bg-dark p-2 m-3">
-                <div id="gitfeedcontainer" class="scrollable">
+                <div class = "refresh-feed-button">
+                    <button class="btn btn-warning" id='gitbutton'>Refresh Feed</button>
                 </div>
+                <div  class="">
+                    <div id="gitfeedcontainer" class="scrollable">
+                    </div>
                 </div>
             </div>
         </div>
-        <hr>
-      <div  class="bg-dark p-2 m-3" style="color: blanchedalmond;">
-        <div class="col-sm-6" >
-            <h4>Messages</h4>
-            <div id="msg-box">
-                <div id="msg-container"  class="scrollable" >
-                    <% proposal.chat.forEach(info => { %>
-                        <p><i class="fas mr-2 fa-user-tie"></i>
-                        <% if(info.typer ==='msg') { %>
-                            <%=info.sender%>:<%=info.text%></p>
-                        <% } else if(info.typer === 'open') { %>
-                            <%=info.sender%> started a video chat</p>
-                        <% } else if(info.typer === 'newUser') { %>
-                            <%=info.sender%> joined this project</p>
-                        <% } else if(info.typer === 'deleteUser') { %>
-                            <%=info.sender%> left this project</p>
-                        <% } %>
+        <div class="col-sm-3">
+            <div class="show-bgcolor">
+                    <h4>Messages</h4>
+                    <div id="msg-box">
+                        <div id="msg-container"  class="scrollable" >
+                            <% proposal.chat.forEach(info => { %>
+                                <p><i class="fas mr-2 fa-user-tie"></i>
+                                <% if(info.typer ==='msg') { %>
+                                    <%=info.sender%>:<%=info.text%></p>
+                                <% } else if(info.typer === 'open') { %>
+                                    <%=info.sender%> started a video chat</p>
+                                <% } else if(info.typer === 'newUser') { %>
+                                    <%=info.sender%> joined this project</p>
+                                <% } else if(info.typer === 'deleteUser') { %>
+                                    <%=info.sender%> left this project</p>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                        <div class="mt-2">
+                            <input class="show-message-input" id="chat-input" type="text" placeholder="Type Message">
+                            <button class="btn btn-success" id="msg-send">Send<i class="fas ml-2 fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div id="active-users">
+                <h3> Active Collaborators </h3>
+                <div id="active-users-ul">
+                    <% activeusers.forEach(user => { %>
+                        <p id="<%=user.id%>"><%=user.username%> is online</p>
                     <% }) %>
-                </div>
-                <div class="mt-2">
-                    <input id="chat-input" type="text" placeholder="Type Message">
-                    <button class="btn btn-success" id="msg-send">Send<i class="fas ml-2 fa-paper-plane"></i></button>
-                </div>
+                    </div>
             </div>
-        </div>
         </div>
     </div>
-    <hr><hr><hr>
-    <div>
+
+
+    <div class="show-video-div">
         <div>
             <div id = 'video-helper'>
                 <p id="123" style="display:none;">Channel Active: </p>
             </div>
-            </div>
-                <input id="channel-name" type="text" placeholder="Type Channel Name">
-                <button class="btn btn-primary" id="btn-open-room">Open Room</button>
-                <button class="btn btn-primary" id="btn-join-room">Join Room</button>
-                <button class="btn btn-primary" id="btn-Leave-room">Leave Room</button>
-                <button class="btn btn-primary" id="btn-close-room">Close Room</button>
-                <a href="/profile/leave/<%=proposal.id%>" class="btn btn-danger">Leave This Project</a>
-               
-                <div id = 'video-stream' class="bg-dark p-2 m-3"></div>
-                
-            </div>
         </div>
+        <input id="channel-name" type="text" placeholder="Type Channel Name">
+        <button class="btn btn-primary" id="btn-open-room">Open Room</button>
+        <button class="btn btn-primary" id="btn-join-room">Join Room</button>
+        <button class="btn btn-primary" id="btn-Leave-room">Leave Room</button>
+        <button class="btn btn-primary" id="btn-close-room">Close Room</button>
+        <a href="/profile/leave/<%=proposal.id%>" class="btn btn-danger">Leave This Project</a>
+        <div id = 'video-stream' class="show-bgcolor"></div>
     </div>
 </div>
-<div id="Total Members" class="bg-dark p-2 m-3" style="color: blanchedalmond;">
+
+<!-- <div id="Total Members" class="show-bgcolor">
      <h3>TEAM</h3>
      <ul id="total-team">
            <li><%=adminName%></li>
@@ -82,15 +89,7 @@
             <li ><%=user%> </li>
         <% }) %>
      </ul>
-</div>
-<div id="active-users" class="bg-dark p-2 m-3" style="color: blanchedalmond;">
-    <h3> Active Users </h3>
-    <ul id="active-users-ul">
-        <% activeusers.forEach(user => { %>
-            <li id="<%=user.id%>"><%=user.username%> is online</li>
-        <% }) %>
-    </ul>
-</div>
+</div> -->
 
 
 
@@ -332,7 +331,7 @@
         const temp = developerArray.length;
         for(var i=0; i<temp; i++) {
             if(developerArray[i]===data.id) {
-                var p = document.createElement('li');
+                var p = document.createElement('p');
                 p.setAttribute('id', data.id);
                 p.innerHTML = `${data.user} is active now`;
                 getElem('active-users-ul').appendChild(p);
