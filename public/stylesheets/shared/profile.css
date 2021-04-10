@@ -9,3 +9,16 @@
     grid-gap: 1rem;
     grid-template-columns: auto auto;
 }
+
+.bgcolor {
+    background-color: rgb(255, 253, 255);
+}
+
+.profile-name {
+    color: black;
+    font-size: 1.75rem;
+}
+
+.profile-email {
+    color: rgb(35,132,125);
+}

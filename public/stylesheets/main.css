@@ -2,6 +2,7 @@
 @import 'shared/check.css';
 @import 'shared/index.css';
 @import 'shared/profile.css';
+@import 'shared/render_proposal.css';
 
 .container {
     max-width: 1400px;
@@ -59,7 +60,7 @@ video {
 }
  
 body{
-    background-color:rgb(255, 253, 255);;
+    background-color:rgb(255, 253, 255);
 }    
 .msg{
     display: flex;
