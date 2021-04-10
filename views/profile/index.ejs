@@ -40,6 +40,9 @@
         <%- include('_proposal.ejs') %>
         <%- include('_projects.ejs') %>
     </div>
+    <div id="notification">
+        <h4>Notifications</h4>
+    </div>
 </div>
 <script src="/jquery/dist/jquery.js"></script>
 <script src="/socket.io/socket.io.js"></script>
@@ -48,6 +51,12 @@
     socket.on('connect', () => {
         console.log('connected');
     })
+
+    function getElem(id) {
+        return document.getElementById(id);
+    }
+
+    var userId = window.location.href.split('/')[4].split('?')[0];
     if(window.location.href.includes('join=') || window.location.href.includes('leave='))
     {
         // console.log(window.location.href);
@@ -61,5 +70,36 @@
         info.message='';
         console.log(info);
         socket.emit('newMessage', info);
+        socket.emit('newNotification', info);
+    }
+
+    const propo = '<%-user.proposalId%>';
+    const project = '<%-user.projectId%>';
+    const propoarray = propo.split(',');
+    const projectarray = project.split(',');
+
+    socket.on('updateNotifications', (data) => {
+        console.log(data);
+        var i;
+        for(i=0; i<propoarray.length; i++) {
+            if(propoarray[i]===data.proposalId) {
+                console.log('Match found');
+                addNotification(data);
+                break;
+            }
+        }
+        for(i=0; i<projectarray.length; i++) {
+            if(projectarray[i]===data.proposalId) {
+                console.log('Match found');
+                addNotification(data);
+                break;
+            }
+        }
+    })
+
+    function addNotification(data) {
+        var p = document.createElement('p');
+        p.innerHTML = `${data.user}${data.message}${data.proposal}`;
+        getElem('notification').appendChild(p);
     }
 </script>

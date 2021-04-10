@@ -47,8 +47,6 @@ module.exports = io => {
         })
 
         socket.on('newActiveUser', async(info) => {
-            console.log('Socket Data');
-            console.log(info);
             console.log('New Active User');
             const id = info.userId;
             const user = await User.findById(id);
@@ -58,9 +56,28 @@ module.exports = io => {
             const data = {
                 id: info.userId
             }
-            console.log('Done');
-            console.log(data);
             io.emit('addActiveUser', data);
+        })
+
+        socket.on('newNotification', async(info) => {
+            console.log('New Notification');
+            const proposalId = info.receiver;
+            const userId = info.sender;
+            const type = info.typer;
+            const user = await User.findById(userId);
+            const proposal = await Proposal.findById(proposalId);
+            let data = {};
+            let message = '';
+            if(type==='newUser') {
+                message = ' joined the project ';
+            } else if(type==='deleteUser') {
+                message = ' left the project ';
+            }
+            data.message = message;
+            data.user = user.username;
+            data.proposal = proposal.title;
+            data.proposalId = proposalId;
+            io.emit('updateNotifications', data);
         })
 
         socket.on('updateFeed', async (data) => {
