@@ -16,3 +16,45 @@
     grid-gap: 0.5rem;
     margin-top: 0.5rem;
 }
+
+.proposal-heading {
+    color: rgb(35,132,125);
+    margin-bottom: 2%;
+}
+
+.proposal-secondary {
+    color: rgb(35,132,125);
+}
+
+.mg-bt {
+    margin-bottom: 5%;
+}
+
+.deadline-date {
+    margin-top: 5%;
+    color: rgb(35,132,125);
+}
+
+.proposal-description {
+    padding-right: 5%;
+}
+
+.cyan {
+    color: rgb(35,132,125);
+}
+
+.contact-div {
+    margin-top: 5%;
+}
+
+.mg-bt2 {
+    margin-bottom: 2%;
+}
+
+.ntd {
+    text-decoration: none;
+}
+
+.proposal-div {
+    background-color: rgb(241,239,241)
+}

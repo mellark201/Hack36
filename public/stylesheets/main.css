@@ -59,9 +59,7 @@ video {
 }
  
 body{
-    background-color: darkgray;
-    background-image: url(https://wallpaperaccess.com/full/249772.jpg);
-    color: rgb(250, 250, 252);
+    background-color:rgb(255, 253, 255);;
 }    
 .msg{
     display: flex;
