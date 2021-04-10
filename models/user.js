@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 var passportLocalMongoose = require("passport-local-mongoose");
 var findorcreate = require('mongoose-findorcreate');
 
+
 var UserSchema = new mongoose.Schema({
     username: {
         type:String,
