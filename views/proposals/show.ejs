@@ -58,7 +58,7 @@
                 </div>
             <% } else if((user===undefined) || (user!==undefined && !proposal.developerId.includes(user.id))) { %>
                 <div>
-                    <a href="/signup/<%=proposal.id%>" class="btn btn-secondary"><i class="fas fa-hand-pointer mr-2"></i>  Sign Up for this Project!</a>
+                    <a href="/signup/<%=proposal.id%>" class="btn btn-success"><i class="fas fa-hand-pointer mr-2"></i>  Sign Up for this Project!</a>
                 </div>
             <% } else { %>
                 <div>

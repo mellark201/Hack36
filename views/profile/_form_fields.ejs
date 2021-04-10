@@ -2,27 +2,27 @@
 <div class="container">
     <h1 style="text-align: center">Edit</h1>
     <div style="width: 30%; margin: 25px auto;">
-        <div>
+        <div class= "form-group">
         <label for='title'>Name: </label> 
         <input type="text" name="name" id="name" required value="<%=user.name === user.username ? '' : user.name%>" class="form-control">
         </div>
-    <div>
+    <div class= "form-group">
         <label for='email'>Email: </label> 
         <input type="email" name="email" id="name" required value="<%=user.email === user.username ? '' : user.email%>" class="form-control">
     </div>
     Optional Parameters :
-    <div>
+    <div class= "form-group">
         <label for='linkedin'>LinkedIn: </label> 
         <input type="url" name="linkedin" id="linkedin" value="<%=user.linkedIn === user.username ? '' : user.linkedIn%>" class="form-control">
     </div>
-    <div>
+    <div class= "form-group">
         <label for='linkedin'>Twitter: </label> 
         <input type="url" name="twitter" id="twitter" value="<%=user.twitter === user.username ? '' : user.twitter%>" class="form-control">
     </div>
-    <div>
+    <div class= "form-group">
         <label for='extra'>Any Other Link: </label> 
         <input type="url" name="extra" id="extra" value="<%=user.extra === user.username ? '' : user.extra%>" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
     </div>
 </div>

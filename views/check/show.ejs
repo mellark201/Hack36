@@ -1,7 +1,8 @@
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
 <div class="banner index-banner">
-    <h3>Collaboration Page : <%= proposal.title %></h3>
+    <a href="/landing"> <h2 class="banner-header">CODE FOR <span class="good">GOOD</span></h2></a>
+    <h3> <%= proposal.title %></h3>
     <div class="banner-inner">
         This page is home base for you and other developers working on this project. You can message each other, video chat, manage your project board and see live updates from your Github Repo.
     </div>
@@ -13,7 +14,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div id="gitfeed">
-                <button id='gitbutton'>Refresh Feed</button>
+                <button class="btn btn-warning" id='gitbutton'>Refresh Feed</button>
                 <div id="gitfeedcontainer" class="scrollable">
 
                 </div>
@@ -39,7 +40,7 @@
                 </div>
                 <div class="mt-2">
                     <input id="chat-input" type="text" placeholder="Type Message">
-                    <button class="btn btn-primary" id="msg-send">Send<i class="fas ml-2 fa-paper-plane"></i></button>
+                    <button class="btn btn-success" id="msg-send">Send<i class="fas ml-2 fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
@@ -52,10 +53,10 @@
             </div>
             <div>
                 <input id="channel-name" type="text" placeholder="Type Channel Name">
-                <button id="btn-open-room">Open Room</button>
-                <button id="btn-join-room">Join Room</button>
-                <button id="btn-Leave-room">Leave Room</button>
-                <button id="btn-close-room">Close Room</button>
+                <button class="btn btn-primary" id="btn-open-room">Open Room</button>
+                <button class="btn btn-primary" id="btn-join-room">Join Room</button>
+                <button class="btn btn-primary" id="btn-Leave-room">Leave Room</button>
+                <button class="btn btn-primary" id="btn-close-room">Close Room</button>
                 <a href="/profile/leave/<%=proposal.id%>" class="btn btn-danger">Leave This Project</a>
                 <div id = 'video-stream'></div>
             </div>
