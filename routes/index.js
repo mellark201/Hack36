@@ -4,6 +4,7 @@ const passport = require('passport');
 const User = require('../models/user');
 const Proposals = require('../models/proposals');
 const log = require('../middleware');
+const socket = require('./socket');
 
 router.get('/landing', async (req, res) => {
     res.render("landing");
@@ -25,7 +26,10 @@ router.get('/', async(req, res) => {
         message = '';
     else
         message = req.query.er;
-    res.render('index', {user: req.user, proposals: proposals, errorMessage: message, isLog: req.user!==undefined});
+    let active = '';
+    if(req.query.active !== undefined)
+        active = req.query.active;
+    res.render('index', {user: req.user, proposals: proposals, errorMessage: message, isLog: req.user!==undefined, active: active});
 })
 
 router.get('/logout', log.isLoggedIn, (req, res) => {

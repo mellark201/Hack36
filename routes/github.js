@@ -10,7 +10,7 @@ router.get('/callback', passport.authenticate('github', {failureRedirect: '/logi
         await req.user.save();
         console.log(req.user);
         console.log('Got back successfully');
-        res.redirect('/');
+        res.redirect('/?active=' + encodeURIComponent(req.user.id));
     }
 );
 
