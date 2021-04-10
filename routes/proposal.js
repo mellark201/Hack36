@@ -75,10 +75,10 @@ router.get('/:id', async(req, res) => {
 })
 
 //Edit Proposal
-router.get(':id/edit', log.isLoggedIn, async(req, res) => {
+router.get('/:id/edit', log.isLoggedIn, async(req, res) => {
     const proposal = await Proposals.findById(req.params.id);
     if(req.user.id===proposal.createId)
-        res.render('proposals/edit', {proposal:proposal, respos:[], errorMessage:''});
+        res.render('proposals/edit', {proposal:proposal, repos:[], errorMessage:''});
     else
         res.redirect(`/proposal/${req.params.id}?er=` + encodeURIComponent('You dont have access to edit this'));
 })

@@ -65,6 +65,7 @@ app.set('layout', 'layouts/layout');
 app.use(express.static('public'));
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({limit: '10mb', extended:false}));
+app.use(methodOverride('_method'));
 
 const mongourl = "mongodb+srv://mellark201:mellark201@codecollab.zucli.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
