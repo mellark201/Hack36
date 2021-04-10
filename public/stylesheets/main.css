@@ -51,6 +51,7 @@ video {
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;
+    
 }
 
 .logo-link {
@@ -62,5 +63,6 @@ body{
     background-image: url(https://wallpaperaccess.com/full/249772.jpg);
     color: rgb(250, 250, 252);
 }    
-
- 
+.msg{
+    display: flex;
+}

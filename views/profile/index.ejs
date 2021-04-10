@@ -1,10 +1,11 @@
 <%- include('../partials/header.ejs') %> 
-<div class="container ">
+<div class="bg-dark p-2 m-3">
     <p>
 
     </p>
     <div class="row">
         <div class="col-sm-4">
+            
             <div>
                 <strong><%= user.name %></strong>
             </div>
@@ -36,11 +37,12 @@
             <% } %>
         </div>
     </div>
-    <div">
+    </div>
+    <div>
         <%- include('_proposal.ejs') %>
         <%- include('_projects.ejs') %>
     </div>
-    <div id="notification">
+    <div id="notification" class="bg-dark p-2 m-3">
         <% notification.forEach(notifs => { %>
             <p> <%= notifs.username%><%=notifs.message%><%=notifs.projectname%><br></p>
         <% }) %>

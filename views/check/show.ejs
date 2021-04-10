@@ -8,23 +8,30 @@
     </div>
     <h4>Go Ahead, Code For Good!</h4>
     <h3><a href="https://github.com/<%=proposal.githubUserName%>/<%=proposal.githubRepoName%>"><i class="fab mr-2 fa-github-alt"></i></a></h3>
+    <% if(currentUser !== undefined) { %>
+        <a class="btn btn-primary" href="/profile/<%= currentUser.id %>"><i class="fas mr-2 fa-id-card-alt"></i>Profile</a>
+        <a class="btn btn-primary" href="/logout"><i class="fas mr-2 fa-sign-out-alt"></i>Logout</a>
+    <% } %>
 </div>
 <hr><hr><hr>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div id="gitfeed">
                 <button class="btn btn-warning" id='gitbutton'>Refresh Feed</button>
+                <div  class="bg-dark p-2 m-3">
                 <div id="gitfeedcontainer" class="scrollable">
-
+                </div>
                 </div>
             </div>
         </div>
         <hr>
-        <div class="col-sm-6">
+      <div  class="bg-dark p-2 m-3">
+        <div class="col-sm-6" >
             <h4>Messages</h4>
             <div id="msg-box">
-                <div id="msg-container"  class="scrollable">
+                <div id="msg-container"  class="scrollable" >
                     <% proposal.chat.forEach(info => { %>
                         <p><i class="fas mr-2 fa-user-tie"></i>
                         <% if(info.typer ==='msg') { %>
@@ -44,6 +51,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
     <hr><hr><hr>
     <div>
@@ -51,14 +59,16 @@
             <div id = 'video-helper'>
                 <p id="123" style="display:none;">Channel Active: </p>
             </div>
-            <div>
+            </div>
                 <input id="channel-name" type="text" placeholder="Type Channel Name">
                 <button class="btn btn-primary" id="btn-open-room">Open Room</button>
                 <button class="btn btn-primary" id="btn-join-room">Join Room</button>
                 <button class="btn btn-primary" id="btn-Leave-room">Leave Room</button>
                 <button class="btn btn-primary" id="btn-close-room">Close Room</button>
                 <a href="/profile/leave/<%=proposal.id%>" class="btn btn-danger">Leave This Project</a>
-                <div id = 'video-stream'></div>
+               
+                <div id = 'video-stream' class="bg-dark p-2 m-3"></div>
+                
             </div>
         </div>
     </div>
