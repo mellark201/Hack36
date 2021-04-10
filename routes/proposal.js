@@ -11,7 +11,6 @@ router.get('/new', log.isLoggedIn, log.hasSpaceLeft, log.hasAllDetail, async(req
     const url = `https://api.github.com/users/${req.user.username}/repos`;
     const response = await fetch(url);
     const result = await response.json();
-
     let arr = [];
     result.forEach(i => {
         if(!req.user.alreadyUsedRepos.includes(i.name))
