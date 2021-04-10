@@ -1,0 +1,137 @@
+<%- include('../partials/header.ejs') %> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 45%;
+  padding: 0 8px;
+  margin: 2%;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  border-radius: 20px;
+  padding: 5%;
+  background-color: rgb(241,239,241);
+}
+
+.container {
+  padding: 0 16px;
+  margin-top: 8px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.heading {
+      text-align: center;
+      color: rgb(27,27,30);
+      margin-top: 30px;
+      text-decoration: underline;
+      size: 20px;
+      font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1 class="heading">OUR TEAM</h1>
+<!-- <p class="">Resize the browser window to see the effect.</p> -->
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card" >
+      <img src="https://i.ibb.co/wWP52NG/Shubham.jpg" alt="Jane" style="width: 100% ; border-radius: 15px;">
+      <div class="container">
+        <h2>Shubham K. Jha</h2>
+        <p class="title">Developer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p> 
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://i.ibb.co/v3RGLtg/gulshan.jpg" alt="Mike" style="width:100%; border-radius: 15px;">
+      <div class="container">
+        <h2>Gulshan Kumar</h2>
+        <p class="title">Developer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="https://i.ibb.co/nwSNk3x/arpit.jpg" alt="John" style="width:100%; border-radius: 15px;">
+      <div class="container">
+        <h2>Arpit Anand</h2>
+        <p class="title">Developer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>arpitbaranwal410@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+      <div class="card">
+        <img src="https://i.ibb.co/XtMxwQg/Tushar.jpg" alt="Jane" style="width:100%; border-radius: 15px;">
+        <div class="container">
+          <h2>Tushar Katiyar</h2>
+          <p class="title">Developer</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>tushar.katiyar0609@gmail.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
