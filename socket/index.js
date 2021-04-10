@@ -45,6 +45,14 @@ module.exports = io => {
             await proposal.save();
             io.emit('updateMessage', info)
         })
+
+        socket.on('newActiveUser', async(info) => {
+            const id = info.userId;
+            const user = await User.findById(id);
+            user.isActive = true;
+            await user.save();
+        })
+
         socket.on('updateFeed', async (data) => {
             console.log('updating feed');
             // console.log(data);

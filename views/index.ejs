@@ -23,3 +23,15 @@
         <% } %>
     <%- include('./partials/render_proposal.ejs') %>
 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('connect', () => {
+        console.log('connected');
+    })
+    let activeData = '<%-active%>'
+    let info = {};
+    info.userId = activeData;
+    socket.emit('newActiveUser', info);
+</script>

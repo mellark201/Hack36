@@ -38,6 +38,9 @@ var UserSchema = new mongoose.Schema({
     githubAvatar: {
         type:String
     },
+    isActive: {
+        type:Boolean
+    },
     alreadyUsedRepos: [String],
     proposalId: [String],
     projectId: [String]

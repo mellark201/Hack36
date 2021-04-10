@@ -40,7 +40,8 @@ passport.use(new GithubStrategy({
             twitter: profile.username,
             linkedIn: profile.username,
             other: profile.username,
-            profileUrl: profile.profileUrl
+            profileUrl: profile.profileUrl,
+            isActive: true
         }, function(err, user) {
             console.log(user);
             return cb(err, user);
