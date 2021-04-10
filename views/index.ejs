@@ -31,8 +31,20 @@
         console.log('connected');
     })
     let activeData = '<%-active%>'
-    let info = {};
-    info.userId = activeData;
-    console.log(info);
-    socket.emit('newActiveUser', info);
+    if(activeData!='') {
+        let info = {};
+        info.userId = activeData;
+        console.log(info);
+        socket.emit('newActiveUser', info);
+    }
+
+    let deactiveData = '<%-deactive%>';
+    console.log('Deactivate');
+    console.log(deactiveData);
+    if(deactiveData!='') {
+        info = {};
+        info.id = deactiveData;
+        console.log(info.id);
+        socket.emit('removeActiveUser', info);
+    }
 </script>

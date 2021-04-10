@@ -41,7 +41,9 @@
         <%- include('_projects.ejs') %>
     </div>
     <div id="notification">
-        <h4>Notifications</h4>
+        <% notification.forEach(notifs => { %>
+            <p> <%= notifs.username%><%=notifs.message%><%=notifs.projectname%><br></p>
+        <% }) %>
     </div>
 </div>
 <script src="/jquery/dist/jquery.js"></script>

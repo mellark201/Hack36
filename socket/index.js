@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Proposal = require('../models/proposals');
 const fetch = require('node-fetch');
+const Notification = require('../models/notification')
 
 module.exports = io => {
     io.on('connection', socket => {
@@ -54,9 +55,19 @@ module.exports = io => {
             user.isActive = true;
             await user.save();
             const data = {
-                id: info.userId
+                id: info.userId,
+                user: user.username
             }
             io.emit('addActiveUser', data);
+        })
+
+        socket.on('removeActiveUser', async(data) => {
+            const info = {
+                id : data.id
+            }
+            console.log('Removing');
+            console.log(info);
+            io.emit('deleteActiveUser', info);
         })
 
         socket.on('newNotification', async(info) => {
@@ -73,10 +84,21 @@ module.exports = io => {
             } else if(type==='deleteUser') {
                 message = ' left the project ';
             }
+
             data.message = message;
             data.user = user.username;
             data.proposal = proposal.title;
             data.proposalId = proposalId;
+
+            const newNotif = new Notification({
+                projectId: proposalId,
+                projectname: proposal.title,
+                message : message,
+                userName : user.username,
+            })
+
+            await newNotif.save();
+
             io.emit('updateNotifications', data);
         })
 

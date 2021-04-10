@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const Proposal = require('../models/proposals');
+const Notification = require('../models/notification');
 const log = require('../middleware');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 const socket = require('./socket');
@@ -23,7 +24,37 @@ router.get('/:id', log.isLoggedIn, async (req, res) => {
             message = '';
         else
             message = req.query.er;
-        res.render('profile/index', {user:req.user, project:arr2, proposals:arr, errorMessage: message, isLog: req.user!==undefined})
+
+
+        let notifArray = [];
+        console.log("Shubham");
+        console.log(req.user.proposalId.length);
+        console.log(req.user.projectId.length);
+        for(const id of req.user.proposalId) {
+            const notifs = await Notification.find({projectId: id}).exec();
+            notifs.forEach(item => {
+                let tempNotif = {};
+                tempNotif.projectname = item.projectname,
+                tempNotif.message = item.message,
+                tempNotif.username = item.userName
+                notifArray.push(tempNotif);
+            })
+        }
+
+        for(const id of req.user.projectId) {
+            const notifs = await Notification.find({projectId: id}).exec();
+            notifs.forEach(item => {
+                let tempNotif = {};
+                tempNotif.projectname = item.projectname,
+                tempNotif.message = item.message,
+                tempNotif.username = item.userName
+                notifArray.push(tempNotif);
+            })
+        }
+
+        console.log(notifArray);
+
+        res.render('profile/index', {user:req.user, project:arr2, proposals:arr, errorMessage: message, isLog: req.user!==undefined, notification: notifArray})
     } catch(err) {
         console.log(err);
         const proposals = await Proposal.findById({});

@@ -27,14 +27,20 @@ router.get('/', async(req, res) => {
     else
         message = req.query.er;
     let active = '';
+    let deactive = '';
     if(req.query.active !== undefined)
         active = req.query.active;
-    res.render('index', {user: req.user, proposals: proposals, errorMessage: message, isLog: req.user!==undefined, active: active});
+    if(req.query.deactive !== undefined)
+        deactive = req.query.deactive;
+    res.render('index', {user: req.user, proposals: proposals, errorMessage: message, isLog: req.user!==undefined, active: active, deactive:deactive});
 })
 
-router.get('/logout', log.isLoggedIn, (req, res) => {
+router.get('/logout', log.isLoggedIn, async(req, res) => {
+    req.user.isActive = false;
+    await req.user.save();
+    const id = req.user.id;
     req.logout();
-    res.redirect('/');
+    res.redirect('/?deactive=' + encodeURIComponent(id));
 })
 
 router.get('/dashboard/about', (req, res) => {

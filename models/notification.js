@@ -6,7 +6,15 @@ var NotificationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    projectname: {
+        type: String,
+        required: true
+    },
     message: {
+        type: String,
+        required: true
+    },
+    userName: {
         type: String,
         required: true
     },
@@ -16,6 +24,6 @@ var NotificationSchema = new mongoose.Schema({
     }
 });
 
-OrganizationSchema.plugin(findOrCreate);
+NotificationSchema.plugin(findOrCreate);
 
 module.exports = mongoose.model('notifs', NotificationSchema);

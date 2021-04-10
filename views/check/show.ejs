@@ -66,6 +66,11 @@
 
 <div id="active-users">
     <h3> Active Users </h3>
+    <ul id="active-users-ul">
+        <% activeusers.forEach(user => { %>
+            <li id="<%=user.id%>"><%=user.username%> is online</li>
+        <% }) %>
+    </ul>
 </div>
 
 
@@ -308,11 +313,17 @@
         const temp = developerArray.length;
         for(var i=0; i<temp; i++) {
             if(developerArray[i]===data.id) {
-                var p = document.createElement('p');
+                var p = document.createElement('li');
                 p.setAttribute('id', data.id);
-                p.innerHTML = `${data.id} active now`;
-                getElem('active-users').appendChild(p);
+                p.innerHTML = `${data.user} is active now`;
+                getElem('active-users-ul').appendChild(p);
             }
         }
+    })
+
+    socket.on('deleteActiveUser', (data) => {
+        console.log(data);
+        var ptag = getElem(data.id);
+        ptag.remove();
     })
 </script>
