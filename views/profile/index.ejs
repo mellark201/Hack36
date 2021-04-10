@@ -1,8 +1,5 @@
 <%- include('../partials/header.ejs') %> 
 <div class="bgcolor p-2 m-3">
-    <p>
-
-    </p>
     <div class="row">
         <div class="col-sm-4">
             
@@ -21,33 +18,23 @@
         <div class="col-sm-4">
             <img class="img-responsive" height = 350 width=350 src="<%=user.githubAvatar%>" class="mb-3">
         </div>
-        <div class="pt-5 mt-5 col-sm-5">
-            <div class="p-2 d-flex">
-                <h4>Visit<a class="logo-link" href="<%=user.profileUrl%>" target="_blank"> GitHub</a></h4>
+        <div class="col-sm-8">
+            <h2>Notifications</h2>
+            <div id="notification" class="scrollable">
+                <% notification.forEach(notifs => { %>
+                    <p> <%= notifs.username%><%=notifs.message%><%=notifs.projectname%><br></p>
+                <% }) %>
             </div>
-            <% if(user.linkedIn !== user.username) { %>
-                <div class="p-2">
-                    <h4>Visit<a class="logo-link" href="<%=user.linkedIn%>" target="_blank"> LinkedIn</a></h4>
-                </div>
-            <% } %>
-            <% if(user.twitter !== user.username) { %>
-                <div class="p-2">
-                    <h4>Visit<a class="logo-link" href="<%=user.twitter%>" target="_blank"> Twitter</a></h4>
-                </div>
-            <% } %>
         </div>
     </div>
+    <div>
+        <div class="mt-5">
+            <%- include('_proposal.ejs') %>
+        </div>
+        <div class="mt-5">
+            <%- include('_projects.ejs') %>
+        </div>
     </div>
-    <div class = "mr-4 ml-4">
-        <%- include('_proposal.ejs') %>
-        <%- include('_projects.ejs') %>
-    </div>
-    <div id="notification" class="bg-dark p-2 m-3">
-        <% notification.forEach(notifs => { %>
-            <p> <%= notifs.username%><%=notifs.message%><%=notifs.projectname%><br></p>
-        <% }) %>
-    </div>
-    
 </div>
 
 

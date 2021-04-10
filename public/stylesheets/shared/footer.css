@@ -1,0 +1,11 @@
+.footer-div {
+    background-color: rgb(27,27,30);
+    color: white;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.footer-quote{
+    font-size: 1.25rem;
+}

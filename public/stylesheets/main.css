@@ -2,6 +2,7 @@
 @import 'shared/check.css';
 @import 'shared/index.css';
 @import 'shared/profile.css';
+@import 'shared/footer.css';
 @import 'shared/render_proposal.css';
 
 .container {
@@ -20,8 +21,6 @@
     text-align: center;
     color: #0a0909;
     background-color: #23847d;
-   
-    
 }
 
 .banner-header {
@@ -64,4 +63,14 @@ body{
 }    
 .msg{
     display: flex;
+}
+
+.bgcolor2 {
+    background-color: rgb(27,27,30);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
