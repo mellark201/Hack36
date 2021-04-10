@@ -70,7 +70,7 @@ body{
     color: white;
 }
 
-a {
+a.nav-link {
     text-decoration: none;
     color: white;
 }

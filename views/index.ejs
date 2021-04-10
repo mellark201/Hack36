@@ -16,6 +16,7 @@
             <% } %>
         </div>
     </div>
+    <%-include('partials/errormessage.ejs')%>
         <% if(user !== undefined) { %>
             <div class="d-flex justify-content-center mt-5">
                 <a class="btn btn-danger" href="/proposal/new"><i class="fas fa-plus mr-2"></i>Add Proposals</a>
@@ -46,5 +47,14 @@
         info.id = deactiveData;
         console.log(info.id);
         socket.emit('removeActiveUser', info);
+    }
+</script>
+
+<script>
+    var msg = document.getElementById('errorMSG');
+    var button = document.getElementById('clear-button');
+    button.onclick = function() {
+        msg.remove();
+        button.remove();
     }
 </script>
