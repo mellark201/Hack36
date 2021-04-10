@@ -36,21 +36,16 @@
                     </div>
 
                     <div class = "proposal-description">
-                        <h6>Github : <a class="ntd" href="<%=developer.linkedIn%>" target="_blank"> https://github.com/<%=developer.username%></a></h6>
+                        <h6>Github : <a class="ntd" href="<%=developer.profileUrl%>" target="_blank"> https://github.com/<%=developer.username%></a></h6>
                     </div>
                     <% if(developer.linkedIn !== developer.username) { %>
-                        <div>
-                            <a class="logo-link" href="<%=developer.linkedIn%>" target="_blank"><h1><i class="fab fa-linkedin"></i></h1></a>
+                        <div class="proposal-description">
+                            <h6>LinkedIn : <a class="ntd" href="<%=developer.linkedIn%>" target="_blank"> <%=developer.linkedIn%></a></h6>
                         </div>
                     <% } %>
                     <% if(developer.twitter !== developer.username) { %>
-                        <div>
-                            <a class="logo-link" href="<%=developer.twitter%>" target="_blank"><h1><i class="fab fa-twitter-square"></i></h1></a>
-                        </div>
-                    <% } %>
-                    <% if(developer.twitter !== developer.username) { %>
-                        <div>
-                            <a class="logo-link" href="<%=developer.other%>" target="_blank"><h1><i class="fas fa-globe"></i></h1></a>
+                        <div class="proposal-description">
+                            <h6>Twitter : <a class="ntd" href="<%=developer.twitter%>" target="_blank"> <%=developer.twitter%></a></h6>
                         </div>
                     <% } %>
                 </div>

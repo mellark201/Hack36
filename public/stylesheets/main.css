@@ -4,10 +4,11 @@
 @import 'shared/profile.css';
 @import 'shared/footer.css';
 @import 'shared/render_proposal.css';
+@import 'shared/show.css';
 
 .container {
     max-width: 1400px;
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 3rem;
 }
 
@@ -73,4 +74,12 @@ body{
 a.nav-link {
     text-decoration: none;
     color: white;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }

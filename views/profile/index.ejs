@@ -95,6 +95,9 @@
         console.log(info);
         socket.emit('newMessage', info);
         socket.emit('newNotification', info);
+        let userInfo = {};
+        userInfo.id = user;
+        scoket.emit('newActiveUser', userInfo);
     }
 
     const propo = '<%-user.proposalId%>';

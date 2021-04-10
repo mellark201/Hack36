@@ -16,6 +16,7 @@ router.get('/:id', log.isLoggedIn, async (req, res) => {
         }
         let arr2 = [];
         for(const id of req.user.projectId) {
+            console.log(id);
             const proposal = await Proposal.findById(id);
             arr2.push(proposal);
         }
@@ -53,6 +54,8 @@ router.get('/:id', log.isLoggedIn, async (req, res) => {
         }
 
         console.log(notifArray);
+        console.log(arr);
+        console.log(arr2);
 
         res.render('profile/index', {user:req.user, project:arr2, proposals:arr, errorMessage: message, isLog: req.user!==undefined, notification: notifArray})
     } catch(err) {

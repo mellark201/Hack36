@@ -86,7 +86,6 @@ const profileRouter = require('./routes/profile');
 const registerRouter = require('./routes/register');
 const signupRouter = require('./routes/signup');
 const checkRouter = require('./routes/check');
-const aboutusRouter=require('./routes/about_us')
 
 app.use((req, res, next) => {
     req.io = io;
@@ -100,7 +99,6 @@ app.use('/profile', profileRouter);
 app.use('/signup', signupRouter);
 app.use('/check', checkRouter);
 app.use('/register', registerRouter);
-app.use('/about_us',aboutusRouter);
 app.set('socketio', io);
 require('./socket')(io);
 

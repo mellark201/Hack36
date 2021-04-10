@@ -1,0 +1,35 @@
+.show-details-banner {
+    padding-left:17.5%;
+    padding-right:17.5%;
+}
+
+.show-project-title {
+    margin-top:3%;
+}
+
+.show-github-anchor {
+    text-decoration: none;
+    color: white;
+}
+
+.refresh-feed-button {
+    align-content: right;
+}
+
+.show-bgcolor {
+    background-color: rgb(241,239,241);
+}
+
+.show-container {
+    margin-top: 3%;
+}
+
+.show-message-input {
+    width: 67%;
+}
+
+.show-video-div {
+    margin-top:3%;
+    position: relative;
+    align-items: center;
+}

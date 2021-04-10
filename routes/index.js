@@ -7,7 +7,11 @@ const log = require('../middleware');
 const socket = require('./socket');
 
 router.get('/landing', async (req, res) => {
-    res.render("landing");
+    res.render("landing", {isLog: false});
+})
+
+router.get('/about', async(req, res) => {
+    res.render('about_us/team', {isLog: false});
 })
 
 //Base Page Router
