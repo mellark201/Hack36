@@ -28,7 +28,7 @@ app.use(passport.session());
 passport.use(new GithubStrategy({
     clientID : "aa3269056a6f67fc8129",
     clientSecret: "f7c8f9e1be99ea02e2e612dc70f7955cafd7bc34",
-    callbackURL: "http://localhost:3000/github/callback"
+    callbackURL: "https://codenate.herokuapp.com/github/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
         console.log(profile);
