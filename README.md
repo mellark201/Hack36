@@ -25,10 +25,10 @@ Features <br>
 
   
 ## Demo Video Link:
-  <a href="https://drive.google.com/file/d/1XTgzzlqyh2wcumgU9B1pnBMCeQfDcAzV/view?usp=sharing">Video Link</a>
+  <a href="https://drive.google.com/file/d/1c1jg2gMa5gjR1k-zf7cJd8BgCIzozvGL/view?usp=sharing">Video Link</a>
   
 ## Presentation Link:
-  <a href="https://1drv.ms/p/s!ArjJs0Decv1lnHOb3hpEhm1wn6ul?e=mNduJQ"> ppt link here </a>
+  <a href="https://drive.google.com/file/d/1DMqRkwXC4NrVd1h0yWH9ViedMFM_LT_8/view?usp=sharing"> ppt link here </a>
   
 
 ## Technology Stack:
