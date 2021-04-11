@@ -3,8 +3,8 @@ Codenate is a platform that connects developers having common interest and enabl
 Since the pandemic has brought out the importance of work from  home ,putting a hold to physical meet ups so our team came up with the idea of Codenate where developers can easily find , interact virtually and contribute to the project of their choice.
 
 Features
--1	Organisation Admin can create a proposal for a project specifying the tech stack ,description and deadline. 
--2	Users have to login using github to get access/contribute to different projects
+<br>	Organisation Admin can create a proposal for a project specifying the tech stack ,description and deadline. 
+<br>	Users have to login using github to get access/contribute to different projects
 -3	Users can browse through proposals  and choose to contribute to project that matches their skills and interests after signing up for it.
 -4	Users can create their profile 
 -5	Displaying Users profile
